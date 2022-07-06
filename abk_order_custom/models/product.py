@@ -126,7 +126,7 @@ class ABKProductClass(models.Model):
     _description = 'Product Class'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", require=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
 
@@ -136,7 +136,7 @@ class ABKWarranty(models.Model):
     _description = 'Warranty'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", require=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
 
@@ -146,7 +146,7 @@ class ABKHeadAsmAnalysis(models.Model):
     _description = 'Head/Asm Analysis'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", require=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
 
@@ -156,7 +156,7 @@ class ABKMaterialAnalysis(models.Model):
     _description = 'Material Analysis'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", require=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
 
@@ -166,7 +166,7 @@ class ABKReferenceCategory(models.Model):
     _description = 'Reference Category'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", require=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
 
@@ -176,7 +176,7 @@ class ABKHSCommodity(models.Model):
     _description = 'HS Commodity'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", require=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
 
@@ -186,7 +186,7 @@ class ABKFSCClaim(models.Model):
     _description = 'FSC Claim'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", require=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
 
@@ -196,7 +196,7 @@ class ABKImportant(models.Model):
     _description = 'Important'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", require=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
 

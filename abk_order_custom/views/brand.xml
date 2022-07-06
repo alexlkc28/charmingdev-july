@@ -5,6 +5,7 @@
             <field name="model">abk.brand</field>
             <field name="arch" type="xml">
                 <tree editable="bottom">
+                    <field name="sequence" widget="handle" />
                     <field name="name" />
                 </tree>
             </field>
@@ -16,6 +17,7 @@
                 <form>
                     <sheet>
                         <group>
+                            <field name="sequence" invisible="1"/>
                             <field name="name"/>
                             <field name="description"/>
                         </group>
