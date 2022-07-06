@@ -9,8 +9,8 @@ class ProductTemplateCustom(models.Model):
     abk_sales_um = fields.Char('Sales UM')
     abk_purchase_UM = fields.Char('Purchase UM')
     abk_prod_code = fields.Char('Group')
-    abk_class_id = fields.Char('Product Class')
-    abk_commodity_code = fields.Char('HS Commodity')
+    abk_class_id = fields.Many2one("abk.product.class", string='Product Class')
+    abk_commodity_code = fields.Many2one("abk.hscommodity", string='HS Commodity')
     abk_on_hold = fields.Char('Hold')
     abk_on_hold_date = fields.Char('Hold Date')
     abk_on_hold_reason_code = fields.Char('Hold Reason Code')
@@ -18,15 +18,15 @@ class ProductTemplateCustom(models.Model):
     abk_non_stock = fields.Char('Non-Stock Item')
     abk_mfg_comment = fields.Char('Manufacturing Comment')
     abk_pur_comment = fields.Char('Purchase Comment')
-    abk_brand = fields.Char('Brand')
-    abk_sub_brand = fields.Char('Sub-Brand')
+    abk_brand = fields.Many2one("abk.brand", string='Brand')
+    abk_sub_brand = fields.Many2one("abk.brand", string='Sub-Brand')
     abk_co_warehouse = fields.Char('CO Warehouse')
     abk_grs_weight = fields.Float('GRS Weight(g)')
     abk_fsc_paper_weight = fields.Char('FSC Paper Weight (kg)')
-    abk_fsc_claim = fields.Char('FSC Claim')
-    abk_agent = fields.Char('Agent')
+    abk_fsc_claim = fields.Many2one("abk.fscclaim",string='FSC Claim')
+    abk_agent = fields.Many2one("res.partner", string='Agent')
     abk_fk_lookup = fields.Char('F/K Lookup')
-    abk_wo_salesman = fields.Char('WO Salesman')
+    abk_wo_salesman = fields.Many2one("res.users", string='WO Salesman')
     abk_plant = fields.Char('Site')
     abk_prim_whse = fields.Char('Primary Warehouse')
     abk_minimum_qty = fields.Integer('Min On-Hand')
@@ -107,15 +107,96 @@ class ProductTemplateCustom(models.Model):
     abk_mdpv = fields.Integer(string="MDPV")
     abk_returnable_container = fields.Integer(string="Returnable Container")
     abk_fk_number = fields.Char(string='F/K Number')
-    abk_warranty = fields.Char(string='Warranty')
-    abk_head_asm_analysis = fields.Char(string='Head/Asm analysis')
-    abk_material_analysis = fields.Char(string='Material Analysis')
-    abk_reference_category = fields.Char(string='Reference Category')
+    abk_warranty = fields.Many2one("abk.warranty", string='Warranty')
+    abk_head_asm_analysis = fields.Many2one("abk.head.analysis", string='Head/Asm analysis')
+    abk_material_analysis = fields.Many2one("abk.material.analysis", string='Material Analysis')
+    abk_reference_category = fields.Many2one("abk.reference.category", string='Reference Category')
     abk_rpd_part = fields.Char(string="RPD Part")
     abk_global = fields.Boolean(string="Global")
     abk_inactive = fields.Boolean(string="Inactive")
-    abk_important = fields.Boolean(string="Important")
+    abk_important = fields.Many2one("abk.important", string="Important")
     abk_sortkey1 = fields.Char(string="SortKey1")
     abk_sortkey2 = fields.Char(string="SortKey2")
     abk_sortkey3 = fields.Char(string="SortKey3")
     abk_sortkey4 = fields.Char(string="SortKey4")
+
+
+class ABKProductClass(models.Model):
+    _name = 'abk.product.class'
+    _description = 'Product Class'
+    _order = "sequence, name, id"
+
+    name = fields.Char(string="Name")
+    description = fields.Text(string="Description")
+    sequence = fields.Integer('Sequence', default=1)
+
+
+class ABKWarranty(models.Model):
+    _name = 'abk.warranty'
+    _description = 'Warranty'
+    _order = "sequence, name, id"
+
+    name = fields.Char(string="Name")
+    description = fields.Text(string="Description")
+    sequence = fields.Integer('Sequence', default=1)
+
+
+class ABKHeadAsmAnalysis(models.Model):
+    _name = 'abk.head.analysis'
+    _description = 'Head/Asm Analysis'
+    _order = "sequence, name, id"
+
+    name = fields.Char(string="Name")
+    description = fields.Text(string="Description")
+    sequence = fields.Integer('Sequence', default=1)
+
+
+class ABKMaterialAnalysis(models.Model):
+    _name = 'abk.material.analysis'
+    _description = 'Material Analysis'
+    _order = "sequence, name, id"
+
+    name = fields.Char(string="Name")
+    description = fields.Text(string="Description")
+    sequence = fields.Integer('Sequence', default=1)
+
+
+class ABKReferenceCategory(models.Model):
+    _name = 'abk.reference.category'
+    _description = 'Reference Category'
+    _order = "sequence, name, id"
+
+    name = fields.Char(string="Name")
+    description = fields.Text(string="Description")
+    sequence = fields.Integer('Sequence', default=1)
+
+
+class ABKHSCommodity(models.Model):
+    _name = 'abk.hscommodity'
+    _description = 'HS Commodity'
+    _order = "sequence, name, id"
+
+    name = fields.Char(string="Name")
+    description = fields.Text(string="Description")
+    sequence = fields.Integer('Sequence', default=1)
+
+
+class ABKFSCClaim(models.Model):
+    _name = 'abk.fscclaim'
+    _description = 'FSC Claim'
+    _order = "sequence, name, id"
+
+    name = fields.Char(string="Name")
+    description = fields.Text(string="Description")
+    sequence = fields.Integer('Sequence', default=1)
+
+
+class ABKImportant(models.Model):
+    _name = 'abk.important'
+    _description = 'Important'
+    _order = "sequence, name, id"
+
+    name = fields.Char(string="Name")
+    description = fields.Text(string="Description")
+    sequence = fields.Integer('Sequence', default=1)
+

@@ -24,6 +24,16 @@
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
         'views/views.xml',
+        'views/brand.xml',
+        'views/fsc_claim.xml',
+        'views/head_analysis.xml',
+        'views/hs_commodity.xml',
+        'views/important.xml',
+        'views/material_analysis.xml',
+        'views/product_class.xml',
+        'views/reference_category.xml',
+        'views/warranty.xml',
     ],
 }
