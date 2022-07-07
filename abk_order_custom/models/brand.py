@@ -8,6 +8,6 @@ class ABKBrand(models.Model):
     _description = 'Brand'
     _order = "sequence, name, id"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)

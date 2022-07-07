@@ -4,7 +4,7 @@
         <record id="abk_brand_view_list" model="ir.ui.view">
             <field name="model">abk.brand</field>
             <field name="arch" type="xml">
-                <tree editable="bottom">
+                <tree>
                     <field name="sequence" widget="handle" />
                     <field name="name" />
                     <field name="description"/>
@@ -18,9 +18,11 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="sequence" invisible="1"/>
-                            <field name="name"/>
-                            <field name="description"/>
+                             <group>
+                                <field name="sequence" invisible="1"/>
+                                <field name="name"/>
+                                <field name="description"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
@@ -32,5 +34,7 @@
             <field name="res_model">abk.brand</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        <menuitem id="course_menu_root" name="Brand" action="abk_brand_action"/>
     </data>
 </odoo>
