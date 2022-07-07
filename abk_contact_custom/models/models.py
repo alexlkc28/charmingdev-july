@@ -76,7 +76,7 @@ class custom_res_partner(models.Model):
     abk_global_lock = fields.Boolean('Global Lock')
     abk_check_dup_po = fields.Boolean('Check Dup PO')
     abk_global = fields.Boolean('Global')
-    abk_ic_trader = fields.Boolean('IC Trader')
+    # abk_ic_trader = fields.Boolean('IC Trader')
     abk_valid_payer = fields.Boolean('Valid payer')
     abk_valid_sold_to = fields.Boolean('Valid Sold To')
     abk_valid_ship_to = fields.Boolean('Valid Ship To')
