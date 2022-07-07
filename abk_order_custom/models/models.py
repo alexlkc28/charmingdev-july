@@ -59,7 +59,6 @@ class custom_sale_order(models.Model):
     abk_outsourcing = fields.Char('Outsourcing')
     abk_brand = fields.Many2one("abk.brand", string='Brand')
     abk_product_importance = fields.Char('Product importance')
-    abk_customer_number = fields.Char('Customer number')
     abk_po_project = fields.Char('PO project')
     abk_delivery_date = fields.Datetime('Delivery date')
     abk_ft = fields.Float('FT(USD)?')

@@ -7,4 +7,3 @@ access_abk_material_analysis,abk.material.analysis,model_abk_material_analysis,b
 access_abk_reference_category,abk.reference.category,model_abk_reference_category,base.group_user,1,1,1,1
 access_abk_hscommodity,abk.hscommodity,model_abk_hscommodity,base.group_user,1,1,1,1
 access_abk_fscclaim,abk.fscclaim,model_abk_fscclaim,base.group_user,1,1,1,1
-access_abk_important,abk.important,model_abk_important,base.group_user,1,1,1,1

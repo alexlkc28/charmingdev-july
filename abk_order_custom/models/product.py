@@ -4,7 +4,8 @@ from odoo import models, fields, api
 class ProductTemplateCustom(models.Model):
     _inherit = 'product.template'
 
-    abk_ium = fields.Char('Inventory UoM')
+    abk_ium = fields.Many2one('uom.uom', string='Inventory UoM')
+    abk_so_uom_id = fields.Many2one('uom.uom', string='Sale UoM')
     abk_class_id = fields.Many2one("abk.product.class", string='Product Class')
     abk_commodity_code = fields.Many2one("abk.hscommodity", string='HS Commodity')
     abk_brand = fields.Many2one("abk.brand", string='Brand')
@@ -47,11 +48,16 @@ class ProductTemplateCustom(models.Model):
     abk_rpd_part = fields.Char(string="RPD Part")
     abk_global = fields.Boolean(string="Global")
     abk_inactive = fields.Boolean(string="Inactive")
-    abk_important = fields.Many2one("abk.important", string="Important")
+    abk_important = fields.Boolean(string="Important")
     abk_sortkey1 = fields.Char(string="SortKey1")
     abk_sortkey2 = fields.Char(string="SortKey2")
     abk_sortkey3 = fields.Char(string="SortKey3")
     abk_sortkey4 = fields.Char(string="SortKey4")
+    abk_half_completed_product_inventory = fields.Boolean(string="Half completed product Inventory")
+    abk_global_lock = fields.Boolean(string="Global Lock")
+    abk_per_container = fields.Float(string="Per container")
+    abk_sub_level_code = fields.Integer(string="Per container")
+    abk_already_open_co = fields.Boolean(string="Already open CO?")
 
 
 class ABKProductClass(models.Model):
@@ -122,14 +128,3 @@ class ABKFSCClaim(models.Model):
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")
     sequence = fields.Integer('Sequence', default=1)
-
-
-class ABKImportant(models.Model):
-    _name = 'abk.important'
-    _description = 'Important'
-    _order = "sequence, name, id"
-
-    name = fields.Char(string="Name", required=True)
-    description = fields.Text(string="Description")
-    sequence = fields.Integer('Sequence', default=1)
-
