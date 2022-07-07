@@ -68,7 +68,7 @@ class custom_res_partner(models.Model):
     abk_fax_num = fields.Char('FaxNum')
     abk_primary_ship_to = fields.Char('PrimaryShipTo')
 
-    abk_customer_name_Localised = fields.Char('Customer Name(Localised)')
+    abk_customer_name_localised = fields.Char('Customer Name(Localised)')
     abk_customer_short_form = fields.Text('Customer short form')
     abk_customer_address = fields.Text('Customer Address')
     abk_no_contact = fields.Boolean('No Contact')
