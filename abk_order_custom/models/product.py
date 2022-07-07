@@ -56,8 +56,12 @@ class ProductTemplateCustom(models.Model):
     abk_half_completed_product_inventory = fields.Boolean(string="Half completed product Inventory")
     abk_global_lock = fields.Boolean(string="Global Lock")
     abk_per_container = fields.Float(string="Per container")
-    abk_sub_level_code = fields.Integer(string="Per container")
+    abk_sub_level_code = fields.Integer(string="Sub-Level Code")
     abk_already_open_co = fields.Boolean(string="Already open CO?")
+    abk_sizew = fields.Char('Size W')
+    abk_sizel = fields.Char('Size L')
+    abk_sizeunit = fields.Char('Size Unit')
+    abk_sizek = fields.Char('Size K')
 
 
 class ABKProductClass(models.Model):
