@@ -34,7 +34,5 @@
             <field name="res_model">abk.brand</field>
             <field name="view_mode">tree,form</field>
         </record>
-
-        <menuitem id="course_menu_root" name="Brand" action="abk_brand_action"/>
     </data>
 </odoo>
