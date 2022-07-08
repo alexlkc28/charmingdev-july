@@ -41,6 +41,9 @@ class PurchaseOrderCustom(models.Model):
     abk_materialduedate = fields.Datetime('Material Due Date')
     abk_sono = fields.Char('Sales order number')
     abk_sale_order_id = fields.Many2one('sale.order', string='Sale Order')
+    abk_promised_date = fields.Datetime('Promised Date')
+    abk_amendement_user = fields.Many2one("res.users", string='Amendement User')
+    abk_amendement_date_time = fields.Datetime('Amendement Date')
 
 
 class PurchaseOrderLineCustom(models.Model):
@@ -57,3 +60,5 @@ class PurchaseOrderLineCustom(models.Model):
     abk_bcolourno = fields.Char('bcolourno')
     abk_machine = fields.Char('Machine')
     abk_paper = fields.Char('Paper')
+    abk_actual_quantity = fields.Integer("Actual Quantity")
+    abk_tax_type = fields.Char("Tax Type")
