@@ -24,7 +24,8 @@ class PurchaseOrderCustom(models.Model):
 class SaleOrderCustom(models.Model):
     _inherit = 'sale.order'
     po_id = fields.Many2one('purchase.order', string='Purchase')
-    purchase_order_list = fields.One2many('purchase.order', 'so_id', string='Purchase Orders', compute="_compute_po_list")
+    purchase_order_list = fields.One2many('purchase.order', 'so_id', string='Purchase Orders',
+                                          compute="_compute_po_list")
     customer_number = fields.Char(related='partner_id.customer_no', string='Customer ID')
 
     def _compute_po_list(self):

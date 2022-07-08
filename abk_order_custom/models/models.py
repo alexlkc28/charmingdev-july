@@ -49,7 +49,7 @@ class custom_sale_order(models.Model):
     abk_delivery_address = fields.Text('Delivery address')
     abk_delivery_description = fields.Text('Delivery Description')
     abk_item_size = fields.Text('Item size')
-    abk_proforma_invoice_remark = fields.Char('Proforma Invoice Remark')
+    abk_proforma_invoice_remark = fields.Text('Proforma Invoice Remark')
     abk_co_remark = fields.Char('CO Remark')
     abk_customer_remark = fields.Char('Customer Remark')
     abk_po_number = fields.Char('PO number')
