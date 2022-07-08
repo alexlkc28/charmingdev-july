@@ -15,7 +15,7 @@ class PurchaseOrderCustom(models.Model):
     abk_yard = fields.Char('Yard')
     abk_content = fields.Char('Content')
     abk_productype = fields.Char('Material Type')
-    abk_brand = fields.Many2one("ab.brand", string='Brand')
+    abk_brand = fields.Many2one("abk.brand", string='Brand')
     abk_remark2 = fields.Text('Remark')
     abk_telephone = fields.Char('Telephone')
     abk_jobno = fields.Char('Job Number')
