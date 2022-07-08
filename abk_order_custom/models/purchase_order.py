@@ -6,7 +6,7 @@ class PurchaseOrderCustom(models.Model):
 
     abk_productno = fields.Char('Product Number')
     abk_podate = fields.Datetime('Order Date', default=fields.Datetime.now)
-    abk_custno = fields.Char('Customer Number')
+    abk_effective_date = fields.Datetime('Effective Date', default=fields.Datetime.now)
     abk_salescode = fields.Char('Sales Code')
     abk_pono = fields.Char('Order Number')
     abk_expdeldate = fields.Datetime('Expected delivery date')
@@ -15,7 +15,7 @@ class PurchaseOrderCustom(models.Model):
     abk_yard = fields.Char('Yard')
     abk_content = fields.Char('Content')
     abk_productype = fields.Char('Material Type')
-    abk_brand = fields.Char('Brand')
+    abk_brand = fields.Many2one("ab.brand", string='Brand')
     abk_remark2 = fields.Text('Remark')
     abk_telephone = fields.Char('Telephone')
     abk_jobno = fields.Char('Job Number')
@@ -26,7 +26,7 @@ class PurchaseOrderCustom(models.Model):
     abk_produser = fields.Char('Production User')
     abk_stockqty = fields.Float('Stock quantity')
     abk_poqty = fields.Float('PO Quantity')
-    abk_pounit = fields.Char('PO Unit')
+    abk_pounit = fields.Many2one('uom.uom', string='PO Unit')
 
     abk_delmark = fields.Text('Delivery Mark')
     abk_internalcode = fields.Char('Internal Code')

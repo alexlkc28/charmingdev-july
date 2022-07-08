@@ -14,7 +14,7 @@ class custom_sale_order(models.Model):
 
     abk_purchase_order_number = fields.Integer('Purchase Order Number')
     abk_purchase_order_date = fields.Datetime('Purchase Order Date')
-    abk_customer_purchase_order = fields.Char('Customer Purchase Order')
+    abk_customer_purchase_order = fields.Char(related="purchase_order_list.customer_id",string='Customer Purchase Order')
     abk_sales_code = fields.Char('Sales Code')
     abk_payment_description = fields.Text('Payment Description')
     abk_attention = fields.Many2one("res.partner", string='Attention')
@@ -28,6 +28,7 @@ class custom_sale_order(models.Model):
     abk_amendement_user = fields.Many2one("res.users", string='Amendement User')
     abk_amendement_date_time = fields.Datetime('Amendement Date')
     abk_po_void = fields.Selection([('yes', 'Yes'), ('no', 'No')], string="PO Void")
+    abk_po_valid = fields.Selection([('yes', 'Yes'), ('no', 'No')], string="PO Valid")
     abk_con_status = fields.Char('Con Status')
     abk_sales_date = fields.Datetime('Sales Date', default=lambda self: fields.Datetime.now())
     abk_salesperson = fields.Many2one("res.users", string='Saleperson')
@@ -38,7 +39,6 @@ class custom_sale_order(models.Model):
     abk_project = fields.Char('Project')
     abk_product_number = fields.Integer('Product number')
     abk_product_description = fields.Text('Product description')
-    abk_material_type = fields.Char('Material Type')
     abk_group = fields.Char('Group')
     abk_customer_material_number = fields.Integer('Customer Material Number')
     abk_order_quantity = fields.Integer('Order Quantity')
@@ -83,6 +83,7 @@ class custom_sale_order(models.Model):
     abk_condate_time = fields.Datetime('Con Date')
     abk_ename = fields.Char('English Name')
     abk_order_date = fields.Datetime('Order Date', default=lambda self: fields.Datetime.now())
+    abk_customer_english_name = fields.Char(related='partner_id.name_english', string='Customer English Name')
 
 
     @api.depends('invoice_ids')
@@ -95,6 +96,12 @@ class custom_sale_order(models.Model):
             invoice.update({
                 'paid': amount_due
             })
+
+
+class CustomSaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'
+
+    abk_material_type = fields.Char('Material Type')
 
 
 class warning_delivery(models.Model):
