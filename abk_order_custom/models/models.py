@@ -14,7 +14,7 @@ class custom_sale_order(models.Model):
 
     abk_purchase_order_number = fields.Integer('Purchase Order Number')
     abk_purchase_order_date = fields.Datetime('Purchase Order Date')
-    abk_customer_purchase_order = fields.Char(related="purchase_order_list.customer_id",string='Customer Purchase Order')
+    abk_customer_purchase_order = fields.Char(related="po_id.customer_id",string='Customer Purchase Order')
     abk_sales_code = fields.Char('Sales Code')
     abk_payment_description = fields.Text('Payment Description')
     abk_attention = fields.Many2one("res.partner", string='Attention')
