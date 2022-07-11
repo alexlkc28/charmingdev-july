@@ -101,8 +101,8 @@ class CustomSaleOrderLine(models.Model):
     abk_art_work_no_pages = fields.Char(string='Art Work Pages')
     abk_art_work_size = fields.Char(string='Art Work Size')
     abk_group = fields.Char(string='Group')
-    customer_material_no = fields.Char(related='product_id.abk_material_no', string="Customer Material Number")
-    product_no = fields.Char(related='product_id.abk_product_no')
+    abk_customer_material_no = fields.Char(related='product_id.abk_material_no', string="Customer Material Number")
+    abk_product_no = fields.Char(related='product_id.abk_product_no')
 
 
 class warning_delivery(models.Model):
