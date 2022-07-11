@@ -94,5 +94,4 @@ class custom_res_partner(models.Model):
     abk_reseveration_priority = fields.Integer("Reseveration priority")
     abk_shipping_qua = fields.Integer("Shipping qua")
     credit_terms_id = fields.Many2one(
-        'account.payment.term', string='Credit Terms', check_company=True,
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+        'account.payment.term', string='Credit Terms')
