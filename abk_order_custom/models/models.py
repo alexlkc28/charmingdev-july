@@ -75,7 +75,7 @@ class custom_sale_order(models.Model):
     abk_iremain = fields.Integer("Iremain")
     abk_expdeldate = fields.Datetime("Expdeldate")
     abk_prevpono = fields.Char("Prevpono")
-    abk_yard = fields.Float("Iremain")
+    abk_yard = fields.Float("Yard")
     abk_content = fields.Char("Content")
     abk_productype = fields.Char("Productype")
     abk_edgetype = fields.Char("Edgetype")
