@@ -62,6 +62,8 @@ class ProductTemplateCustom(models.Model):
     abk_sizel = fields.Char('Size L')
     abk_sizeunit = fields.Char('Size Unit')
     abk_sizek = fields.Char('Size K')
+    abk_product_no = fields.Char(string='Product No')
+    abk_material_no = fields.Char(string='Customer Material No')
 
 
 class ABKProductClass(models.Model):
