@@ -135,7 +135,7 @@ class CustomSaleOrderLine(models.Model):
     abk_machine = fields.Char("machine")
     abk_paper = fields.Char("paper")
     abk_process = fields.Char("process")
-    abk_impt = fields.Many2many('account.tax', string='Tax Type')
+    abk_impt = fields.Char(string='Tax Type')
 
 
 class warning_delivery(models.Model):
