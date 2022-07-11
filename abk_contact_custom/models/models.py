@@ -93,4 +93,4 @@ class custom_res_partner(models.Model):
     abk_quote_markup = fields.Integer("Quote markup")
     abk_reseveration_priority = fields.Integer("Reseveration priority")
     abk_shipping_qua = fields.Integer("Shipping qua")
-    credit_terms_id = fields.Many2one("account.payment.term", string='Credit Terms')
+    credit_payment_term_id = fields.Many2one("account.payment.term", string='Credit Terms')
