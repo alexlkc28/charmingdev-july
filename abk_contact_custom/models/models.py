@@ -96,4 +96,4 @@ class custom_res_partner(models.Model):
     abk_oversea = fields.Boolean("oversea")
     abk_status = fields.Boolean("Status")
     abk_isvendor = fields.Boolean("Is Vendor")
-    # abk_iscustomer = fields.Boolean("Is Customer")
+    abk_iscustomer = fields.Boolean("Is Customer")
