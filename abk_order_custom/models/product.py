@@ -84,7 +84,7 @@ class ProductTemplateCustom(models.Model):
     abk_foccbx = fields.Boolean("Foccbx")
     abk_focdesc = fields.Boolean("Focdesc")
     abk_stkcbx = fields.Boolean("Stkcbx")
-    abk_stkrb = fields.Boolean("Stkrb")
+    abk_stkrb = fields.Char("stkrb")
     abk_samcbx = fields.Boolean("Samcbx")
     abk_samst = fields.Boolean("Samst")
     abk_constatus = fields.Boolean("Constatus")

@@ -88,7 +88,7 @@ class custom_sale_order(models.Model):
     abk_foccbx = fields.Boolean("foccbx")
     abk_focdesc = fields.Boolean("focdesc")
     abk_stkcbx = fields.Boolean("stkcbx")
-    abk_stkrb = fields.Boolean("stkrb")
+    abk_stkrb = fields.Char("stkrb")
     abk_samcbx = fields.Boolean("samcbx")
     abk_samst = fields.Boolean("samst")
     abk_constatus = fields.Boolean("constatus")
