@@ -17,14 +17,13 @@ class custom_res_partner(models.Model):
     contact = fields.Char('Contact')
     paydesc = fields.Text('Payment Description')
     remark = fields.Text('Remark')
-    monthpay = fields.Char('Month pay')
+    monthpay = fields.Boolean('Month pay')
     currency = fields.Many2one("res.currency", string="Currency")
     crlimit = fields.Boolean("Credit Limited", default=False)
     crlimit_amount = fields.Integer('Credit Limit Amount')
     discnt = fields.Char('Discount')
     sales_code = fields.Char('Sales Code')
     invdiscnt = fields.Char('Invoice Discount')
-    chiadd = fields.Char('Chiadd')
     allow_payment = fields.Char('Allow Payment')
     auto_open_inv_ers_inv = fields.Selection([('openInvoice', 'Open Invoice'),
                                               ('ersInvoice', 'ERS Invoice')],
