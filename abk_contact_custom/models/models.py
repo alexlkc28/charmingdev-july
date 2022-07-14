@@ -31,7 +31,7 @@ class custom_res_partner(models.Model):
                                              string="Auto Open Invoice/ERS Invoice")
     payment_type = fields.Selection([('bank', 'Bank'), ('creditCard', 'Credit Card'),
                                      ('cash', 'Cash')], string="Payment Type")
-    lang_use = fields.Selection([('english', 'E'), ('chinese', 'C')], string="Language")
+    lang_use = fields.Selection([('E', 'E'), ('C', 'C')], string="Language Use")
     payterm = fields.Selection([('0', '0'), ('7', '7'),
                                 ('15', '15'), ('20', '20'),
                                 ('30', '30'), ('45', '45'),
@@ -45,7 +45,7 @@ class custom_res_partner(models.Model):
     abk_character03 = fields.Char('Character03')
     abk_comment = fields.Text('Comment')
     abk_currency_code = fields.Char('CurrencyCode')
-    abk_est_date = fields.Char('EstDate')
+    abk_est_date = fields.Char('Open Date')
     abk_terms_code = fields.Char('TermsCode')
     abk_discount_percent = fields.Char('DiscountPercent')
     abk_tax_region_code = fields.Char('TaxRegionCode')
@@ -66,7 +66,6 @@ class custom_res_partner(models.Model):
     abk_per_con_name = fields.Char('PerConName')
     abk_ship_to_num = fields.Char('ShipToNum')
     abk_phone_num = fields.Char('PhoneNum')
-    abk_fax_num = fields.Char('FaxNum')
     abk_primary_ship_to = fields.Char('PrimaryShipTo')
 
     abk_customer_name_localised = fields.Char('Customer Name(Localised)')
@@ -93,3 +92,8 @@ class custom_res_partner(models.Model):
     abk_quote_markup = fields.Integer("Quote markup")
     abk_reseveration_priority = fields.Integer("Reseveration priority")
     abk_shipping_qua = fields.Integer("Shipping qua")
+    abk_stype = fields.Char("stype")
+    abk_ventype = fields.Char("ventype")
+    abk_oversea = fields.Boolean("oversea")
+    abk_status = fields.Boolean("Status")
+    abk_isvendor = fields.Boolean("Is Vendor")
