@@ -104,7 +104,7 @@ class custom_sale_order(models.Model):
         ('cancel', 'Cancelled'),
     ], string='Status', readonly=False, copy=False, index=True, tracking=3, default='draft')
 
-    name = fields.Char(string='Order Reference', required=True, copy=False, readonly=False,
+    name = fields.Char(string='Order Reference', required=False, copy=False, readonly=False,
                        states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
 
 
