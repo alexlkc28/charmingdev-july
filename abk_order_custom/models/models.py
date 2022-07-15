@@ -96,6 +96,14 @@ class custom_sale_order(models.Model):
     abk_constatus = fields.Boolean("constatus")
     abk_fsc_claim = fields.Many2one("abk.fscclaim", string='FSC Claim')
 
+    state = fields.Selection([
+        ('draft', 'Quotation'),
+        ('sent', 'Quotation Sent'),
+        ('sale', 'Sales Order'),
+        ('done', 'Locked'),
+        ('cancel', 'Cancelled'),
+    ], string='Status', readonly=False, copy=False, index=True, tracking=3, default='draft')
+
 
     @api.depends('invoice_ids')
     def depends_invoice_id(self):
