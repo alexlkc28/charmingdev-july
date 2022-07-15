@@ -130,7 +130,7 @@ class CustomSaleOrderLine(models.Model):
     abk_art_work_size = fields.Char(string='Art Work Size')
     abk_group = fields.Char(string='Group')
     abk_customer_material_no = fields.Char(related='product_id.abk_material_no', string="Customer Material Number")
-    abk_product_no = fields.Char(related='product_id.abk_product_no')
+    abk_product_no = fields.Char(related='product_id.default_code')
     abk_fcolour = fields.Char("fcolour")
     abk_bcolour = fields.Char("bcolour")
     abk_fcolourno = fields.Integer('fcolourno')

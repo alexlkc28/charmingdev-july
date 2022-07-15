@@ -133,6 +133,11 @@ class ProductTemplateCustom(models.Model):
     abk_tranin = fields.Integer("tranin")
 
 
+class ProductProductCustom(models.Model):
+    _inherit = 'product.product'
+
+    abk_hs_code = fields.Many2one("abk.hscommodity", string="HS Code")
+
 class ABKProductClass(models.Model):
     _name = 'abk.product.class'
     _description = 'Product Class'
