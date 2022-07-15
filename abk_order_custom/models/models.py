@@ -156,6 +156,7 @@ class CustomSaleOrderLine(models.Model):
     abk_prevpono = fields.Char("prevpono")
     abk_constatus = fields.Boolean("constatus")
     abk_hs_code = fields.Many2one("abk.hscommodity", string="HS Code")
+    abk_unitpce = fields.Char("Unit pce")
 
 
 class warning_delivery(models.Model):
