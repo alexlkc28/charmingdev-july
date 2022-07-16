@@ -9,7 +9,8 @@ class PurchaseOrderCustom(models.Model):
     customer_id = fields.Many2one('res.partner', 'Customer Name')
     customer_number = fields.Char(related='customer_id.customer_no', string='Customer Number')
     customer_phone = fields.Char(related='customer_id.phone', string='Customer Telephone Number')
-    sale_order_list = fields.One2many('sale.order', 'po_id', string='Sales')
+
+    sale_order_list = fields.One2many('sale.order', 'po_id', string='Sales', compute="_compute_so_list")
     so_id = fields.Many2one('sale.order', string='Sale Order')
 
     vendor_number = fields.Char(related='partner_id.customer_no', string='Vendor Number')
@@ -17,6 +18,10 @@ class PurchaseOrderCustom(models.Model):
 
     @api.onchange('customer_id')
     def _compute_so_customer_id(self):
+        for record in self:
+            record['sale_order_list'] = record.env['sale.order'].search([('partner_id', '=', record.customer_id.id)])
+
+    def _compute_so_list(self):
         for record in self:
             record['sale_order_list'] = record.env['sale.order'].search([('partner_id', '=', record.customer_id.id)])
 
