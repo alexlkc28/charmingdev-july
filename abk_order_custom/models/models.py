@@ -96,16 +96,16 @@ class custom_sale_order(models.Model):
     abk_constatus = fields.Boolean("constatus")
     abk_fsc_claim = fields.Many2one("abk.fscclaim", string='FSC Claim')
 
-    state = fields.Selection([
-        ('draft', 'Quotation'),
-        ('sent', 'Quotation Sent'),
-        ('sale', 'Sales Order'),
-        ('done', 'Locked'),
-        ('cancel', 'Cancelled'),
-    ], string='Status', readonly=False, copy=False, index=True, tracking=3, default='draft')
-
-    name = fields.Char(string='Order Reference', required=False, copy=False, readonly=False,
-                       states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
+    # state = fields.Selection([
+    #     ('draft', 'Quotation'),
+    #     ('sent', 'Quotation Sent'),
+    #     ('sale', 'Sales Order'),
+    #     ('done', 'Locked'),
+    #     ('cancel', 'Cancelled'),
+    # ], string='Status', readonly=False, copy=False, index=True, tracking=3, default='draft')
+    #
+    # name = fields.Char(string='Order Reference', required=False, copy=False, readonly=False,
+    #                    states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
 
 
     @api.depends('invoice_ids')

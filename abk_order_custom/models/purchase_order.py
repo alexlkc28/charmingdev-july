@@ -44,6 +44,27 @@ class PurchaseOrderCustom(models.Model):
     abk_promised_date = fields.Datetime('Promised Date')
     abk_amendement_user = fields.Many2one("res.users", string='Amendement User')
     abk_amendement_date_time = fields.Datetime('Amendement Date')
+    abk_reclocation = fields.Char('reclocation')
+    abk_attention = fields.Char('Attention')
+    abk_status = fields.Boolean('Status')
+    abk_payterm = fields.Char('Payterm')
+    abk_paydesc = fields.Text('Payterm Description')
+    abk_delterm = fields.Char('Delivery Term')
+    abk_exrate = fields.Char('Exrate')
+    abk_amount = fields.Float('ABK Amount')
+    abk_otheramt = fields.Float('ABK Otheramt')
+    abk_gtotal = fields.Float('ABK gtotal')
+    abk_packrmk = fields.Text('packrmk')
+
+    state = fields.Selection([
+        ('draft', 'RFQ'),
+        ('sent', 'RFQ Sent'),
+        ('to approve', 'To Approve'),
+        ('purchase', 'Purchase Order'),
+        ('done', 'Locked'),
+        ('cancel', 'Cancelled')
+    ], string='Status', readonly=False, index=True, copy=False, default='draft', tracking=True)
+
 
 
 class PurchaseOrderLineCustom(models.Model):
@@ -62,3 +83,13 @@ class PurchaseOrderLineCustom(models.Model):
     abk_paper = fields.Char('Paper')
     abk_actual_quantity = fields.Integer("Actual Quantity")
     abk_tax_type = fields.Char("Tax Type")
+    abk_ounitpce = fields.Float("ounitpce")
+    abk_discnt = fields.Float("discnt")
+    abk_expdeldate = fields.Datetime("Expdeldate")
+    abk_poend = fields.Boolean("poend")
+    abk_remark = fields.Text("Remark")
+    abk_buycompany = fields.Char("Buy company")
+    abk_paylocation = fields.Char("Bay Location")
+    abk_venitem = fields.Char("Venitemn")
+    abk_recqty = fields.Float("recqty")
+    abk_recunit = fields.Float("recunit")
