@@ -65,6 +65,12 @@ class PurchaseOrderCustom(models.Model):
         ('cancel', 'Cancelled')
     ], string='Status', readonly=False, index=True, copy=False, default='draft', tracking=True)
 
+    READONLY_STATES = {
+        'purchase': [('readonly', True)],
+        'done': [('readonly', True)],
+        'cancel': [('readonly', True)],
+    }
+
     partner_id = fields.Many2one('res.partner', string='Vendor', required=False, states=READONLY_STATES,
                                  change_default=True, tracking=True,
                                  domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
