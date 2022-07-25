@@ -56,26 +56,25 @@ class PurchaseOrderCustom(models.Model):
     abk_gtotal = fields.Float('ABK gtotal')
     abk_packrmk = fields.Text('packrmk')
 
-    state = fields.Selection([
-        ('draft', 'RFQ'),
-        ('sent', 'RFQ Sent'),
-        ('to approve', 'To Approve'),
-        ('purchase', 'Purchase Order'),
-        ('done', 'Locked'),
-        ('cancel', 'Cancelled')
-    ], string='Status', readonly=False, index=True, copy=False, default='draft', tracking=True)
+    # state = fields.Selection([
+    #     ('draft', 'RFQ'),
+    #     ('sent', 'RFQ Sent'),
+    #     ('to approve', 'To Approve'),
+    #     ('purchase', 'Purchase Order'),
+    #     ('done', 'Locked'),
+    #     ('cancel', 'Cancelled')
+    # ], string='Status', readonly=False, index=True, copy=False, default='draft', tracking=True)
 
-    READONLY_STATES = {
-        'purchase': [('readonly', True)],
-        'done': [('readonly', True)],
-        'cancel': [('readonly', True)],
-    }
-
-    partner_id = fields.Many2one('res.partner', string='Vendor', required=False, states=READONLY_STATES,
-                                 change_default=True, tracking=True,
-                                 domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
-                                 help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
-
+    # READONLY_STATES = {
+    #     'purchase': [('readonly', True)],
+    #     'done': [('readonly', True)],
+    #     'cancel': [('readonly', True)],
+    # }
+    #
+    # partner_id = fields.Many2one('res.partner', string='Vendor', required=False, states=READONLY_STATES,
+    #                              change_default=True, tracking=True,
+    #                              domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
+    #                              help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
 
 
 class PurchaseOrderLineCustom(models.Model):
