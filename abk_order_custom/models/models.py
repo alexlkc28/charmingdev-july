@@ -124,7 +124,7 @@ class CustomSaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     abk_material_type = fields.Char('Material Type')
-    abk_item_size = fields.Char(related='product_id.abk_item_size')
+    abk_item_size = fields.Char('Item size')
     abk_outsourcing = fields.Char('Outsourcing')
     abk_hka_amount = fields.Float(string='HKA Amount')
     abk_currency = fields.Text(string="Currency")
