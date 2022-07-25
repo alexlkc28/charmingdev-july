@@ -144,7 +144,7 @@ class CustomSaleOrderLine(models.Model):
     abk_fcolour = fields.Char("fcolour")
     abk_bcolour = fields.Char("bcolour")
     abk_fcolourno = fields.Integer('fcolourno')
-    abk_bcolourno = fields.Integer('Output Quantity')
+    abk_bcolourno = fields.Integer('bcolourno')
     abk_chcolour = fields.Char("chcolour")
     abk_machine = fields.Char("machine")
     abk_paper = fields.Char("paper")
