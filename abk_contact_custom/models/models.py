@@ -25,9 +25,7 @@ class custom_res_partner(models.Model):
     sales_code = fields.Char('Sales Code')
     invdiscnt = fields.Char('Invoice Discount')
     allow_payment = fields.Char('Allow Payment')
-    auto_open_inv_ers_inv = fields.Selection([('openInvoice', 'Open Invoice'),
-                                              ('ersInvoice', 'ERS Invoice')],
-                                             string="Auto Open Invoice/ERS Invoice")
+    auto_open_inv_ers_inv = fields.Boolean("Auto Open Invoice/ERS Invoice")
     payment_type = fields.Selection([('bank', 'Bank'), ('creditCard', 'Credit Card'),
                                      ('cash', 'Cash')], string="Payment Type")
     lang_use = fields.Selection([('E', 'E'), ('C', 'C')], string="Language Use")
@@ -54,7 +52,7 @@ class custom_res_partner(models.Model):
     abk_ers_order = fields.Boolean('Auto Invoice/ERS Order')
     abk_allow_alt_bill_to = fields.Boolean('AllowAltBillTo')
     abk_list_code = fields.Char('ListCode')
-    abk_credit_hold = fields.Char('CreditHold')
+    abk_credit_hold = fields.Boolean('CreditHold')
     abk_tot_invoice_credit = fields.Char('TotInvoiceCredit')
     abk_tot_order_credit = fields.Char('TotOrderCredit')
     abk_tot_open_credit = fields.Char('TotOpenCredit')
