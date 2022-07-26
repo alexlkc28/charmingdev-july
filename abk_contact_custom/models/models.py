@@ -25,7 +25,7 @@ class custom_res_partner(models.Model):
     sales_code = fields.Char('Sales Code')
     invdiscnt = fields.Char('Invoice Discount')
     allow_payment = fields.Char('Allow Payment')
-    abk_auto_open_inv_ers_inv = fields.Boolean("Auto Open Invoice/ERS Invoice")
+    # abk_auto_open_inv_ers_inv = fields.Boolean("Auto Open Invoice/ERS Invoice")
     payment_type = fields.Selection([('bank', 'Bank'), ('creditCard', 'Credit Card'),
                                      ('cash', 'Cash')], string="Payment Type")
     lang_use = fields.Selection([('E', 'E'), ('C', 'C')], string="Language Use")
