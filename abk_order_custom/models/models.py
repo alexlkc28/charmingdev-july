@@ -56,7 +56,7 @@ class custom_sale_order(models.Model):
     abk_agent = fields.Many2one("res.partner", string='Agent')
     abk_web_order_number = fields.Char('Web Order Number')
     abk_format_id = fields.Integer('Format ID')
-    abk_customer_service_person = fields.Char('Customer Service Person')
+    abk_customer_service_person = fields.Many2one('hr.employee', string='Customer Service Person')
     abk_referrer = fields.Char('Referrer')
     abk_proforma_invoice_number = fields.Integer('Proforma Invoice Number')
     abk_podate = fields.Datetime('PO Date')
