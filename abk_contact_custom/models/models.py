@@ -96,3 +96,10 @@ class custom_res_partner(models.Model):
     abk_isvendor = fields.Boolean("Is Vendor")
     abk_iscustomer = fields.Boolean("Is Customer")
     abk_epicor = fields.Char("EPICOR")
+
+    @api.model
+    def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = list(args or [])
+        if name:
+            args += ['|', ('name', operator, name), ('customer_no', operator, name)]
+        return self._search(args, limit=limit, access_rights_uid=name_get_uid)
