@@ -34,6 +34,6 @@
         'views/product_class.xml',
         'views/reference_category.xml',
         'views/warranty.xml',
-        # 'views/mrp_bom.xml',
+        'views/mrp_bom.xml',
     ],
 }
