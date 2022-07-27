@@ -16,11 +16,12 @@
     'author': 'Aboutknowledge (Hong Kong) Limited',
     'company': 'Aboutknowledge (Hong Kong) Limited',
     'website': "https://www.aboutknowledge.com/",
-    'depends': ['base', 'sale', 'purchase', 'product'],
+    'depends': ['base', 'mrp', 'sale', 'purchase', 'product'],
     'auto_install': False,
     'application': False,
     'installable': True,
     'data': [
+            # 'views/mrp_bom.xml',
             'views/sale_order.xml',
             'views/product_template.xml'
             ]
