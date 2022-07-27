@@ -34,6 +34,6 @@
         </record>
 
         <!-- Top menu item -->
-        <menuitem id="customer_type_menu_root" name="Customer Type" action="abk_customer_type_action_window"/>
+        <!-- <menuitem id="customer_type_menu_root" name="Customer Type" action="abk_customer_type_action_window"/> -->
     </data>
 </odoo>
