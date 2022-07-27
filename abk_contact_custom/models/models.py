@@ -96,7 +96,7 @@ class custom_res_partner(models.Model):
     abk_isvendor = fields.Boolean("Is Vendor")
     abk_iscustomer = fields.Boolean("Is Customer")
     abk_epicor = fields.Char("EPICOR")
-    # abk_customer_type = fields.Many2one('abk.customer.type', string="Customer Type")
+    abk_customer_type = fields.Many2one('abk.customer.type', string="Customer Type")
 
     @api.model
     def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None):
