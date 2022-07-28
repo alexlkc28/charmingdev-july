@@ -54,7 +54,7 @@ class custom_sale_order(models.Model):
     abk_salesman = fields.Char('Salesman')
     abk_sortkey1 = fields.Char('Sortkey1')
     abk_agent = fields.Many2one("res.partner", string='Agent')
-    company_type = fields.Selection(string='Agent Type',
+    abk_agent_type = fields.Selection(string='Agent Type',
                                     related="abk_agent.company_type"
                                     )
 
