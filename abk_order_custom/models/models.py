@@ -35,7 +35,7 @@ class custom_sale_order(models.Model):
     abk_product_description = fields.Text('Product description')
     abk_order_quantity = fields.Integer('Order Quantity')
     abk_unit = fields.Integer('Unit')
-    abk_order_currency = fields.Char('Order Currency')
+    abk_order_currency = fields.Many2one(related="partner_id.currency", string="Order Currency",readonly=False)
     abk_require_date = fields.Datetime('Require date')
     abk_delivery_address = fields.Text('Delivery address')
     abk_delivery_description = fields.Text('Delivery Description')
@@ -118,6 +118,12 @@ class custom_sale_order(models.Model):
             invoice.update({
                 'paid': amount_due
             })
+
+    @api.model
+    def get_currency(self):
+        """function to get currency"""
+        default = self.env.ref("contacts").currency
+        return default
 
 
 class CustomSaleOrderLine(models.Model):
