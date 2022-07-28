@@ -54,6 +54,10 @@ class custom_sale_order(models.Model):
     abk_salesman = fields.Char('Salesman')
     abk_sortkey1 = fields.Char('Sortkey1')
     abk_agent = fields.Many2one("res.partner", string='Agent')
+    company_type = fields.Selection(string='Agent Type',
+                                    related="abk_agent.company_type"
+                                    )
+
     abk_web_order_number = fields.Char('Web Order Number')
     abk_format_id = fields.Integer('Format ID')
     abk_customer_service_person = fields.Char('Customer Service Person')
