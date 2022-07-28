@@ -35,7 +35,7 @@ class custom_sale_order(models.Model):
     abk_product_description = fields.Text('Product description')
     abk_order_quantity = fields.Integer('Order Quantity')
     abk_unit = fields.Integer('Unit')
-    abk_order_currency = fields.Char('Order Currency')
+    abk_order_currency = fields.Many2one(related="partner_id.currency", string="Order Currency", readonly=False)
     abk_require_date = fields.Datetime('Require date')
     abk_delivery_address = fields.Text('Delivery address')
     abk_delivery_description = fields.Text('Delivery Description')
@@ -54,6 +54,10 @@ class custom_sale_order(models.Model):
     abk_salesman = fields.Char('Salesman')
     abk_sortkey1 = fields.Char('Sortkey1')
     abk_agent = fields.Many2one("res.partner", string='Agent')
+    abk_agent_type = fields.Selection(string='Agent Type',
+                                      related="abk_agent.company_type"
+                                      )
+
     abk_web_order_number = fields.Char('Web Order Number')
     abk_format_id = fields.Integer('Format ID')
     abk_customer_service_person = fields.Many2one('hr.employee', string='Customer Service Person')
@@ -107,7 +111,6 @@ class custom_sale_order(models.Model):
     # name = fields.Char(string='Order Reference', required=False, copy=False, readonly=False,
     #                    states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
 
-
     @api.depends('invoice_ids')
     def depends_invoice_id(self):
         for invoice in self:
@@ -118,6 +121,12 @@ class custom_sale_order(models.Model):
             invoice.update({
                 'paid': amount_due
             })
+
+    @api.model
+    def get_currency(self):
+        """function to get currency"""
+        default = self.env.ref("contacts").currency
+        return default
 
 
 class CustomSaleOrderLine(models.Model):
@@ -176,10 +185,3 @@ class warning_delivery(models.Model):
     def compute_delivery_warning(self):
         for record in self:
             record['delivery_warning'] = record.sale_id.is_warning
-
-
-
-
-
-
-
