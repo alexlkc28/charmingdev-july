@@ -36,7 +36,7 @@ class SaleOrder(models.Model):
     po_valid = fields.Boolean(string='PO Valid')
     customer_remark = fields.Text(string='Customer Remark')
     co_mark = fields.Char(string='CO Mark')
-    delivery_address = fields.Text(string='Delivery Address')
+    delivery_address = fields.Many2one('res.partner',string='Delivery Address')
     delivery_descr = fields.Text(string='Delivery Description')
     require_date = fields.Date(string="Require Date")
     sale_type = fields.Char(string="Sale Order Type")

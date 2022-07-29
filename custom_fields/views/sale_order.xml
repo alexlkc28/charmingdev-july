@@ -72,7 +72,7 @@
                     <field name="po_project"/>
                     <field name="project"/>
                     <field name="require_date"/>
-                    <field name="delivery_address"/>
+                    <field name="delivery_address"  domain="[('parent_id', '=',partner_id),('type','=','delivery')]"/>
                     <field name="delivery_descr"/>
                     <field name="delivery_date"/>
                 </group>
