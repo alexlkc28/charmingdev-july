@@ -14,7 +14,6 @@ class SaleOrder(models.Model):
     po_number = fields.Char(string='PO Number')
     salesman = fields.Char(string='Sales Man')
     sort_key = fields.Char(string='Sort Key')
-    format_id = fields.Integer(string='Format ID')
     order_currency = fields.Char(string='Order Currency')
     customer_service = fields.Char(string='Customer Service Person')
     sale_ids = fields.Many2many('sale.order', 'sale_order_reference_rel', 'sale_id', 'ref_id',
@@ -26,6 +25,9 @@ class SaleOrder(models.Model):
     project = fields.Text(string='Project')
     web_order_no = fields.Integer(string='Web Order No')
     agent = fields.Char(string='Agent')
+    company_type = fields.Selection(string='Agent Type',
+                                    selection=[('person', 'Individual'), ('company', 'Company')],
+                                    )
     brand = fields.Char(string='Brand')
     sub_brand = fields.Char(string='Sub Brand')
     delivery_date = fields.Date(string='Delivery Date')

@@ -6,3 +6,4 @@ class ProductTemplate(models.Model):
 
     product_no = fields.Char(string='Product No')
     material_no = fields.Char(string='Customer Material No')
+    format_id = fields.Char(string='Format ID')

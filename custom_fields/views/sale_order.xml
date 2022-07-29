@@ -33,7 +33,6 @@
                     <field name="product_importance"/>
                     <field name="customer_service"/>
                     <field name="sort_key"/>
-                    <field name="format_id"/>
                 </group>
             </xpath>
 
