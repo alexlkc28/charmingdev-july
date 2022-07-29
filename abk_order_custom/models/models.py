@@ -99,6 +99,11 @@ class custom_sale_order(models.Model):
     abk_samst = fields.Boolean("samst")
     abk_constatus = fields.Boolean("constatus")
     abk_fsc_claim = fields.Many2one("abk.fscclaim", string='FSC Claim')
+    wos_address_id = fields.Selection([
+        ('1', 'Invoice Address'),
+        ('2', 'Delivery Address'),
+        ('3', 'Other Address'),
+        ('4', 'Private Address')], string="WOS Address ID")
 
     # state = fields.Selection([
     #     ('draft', 'Quotation'),
